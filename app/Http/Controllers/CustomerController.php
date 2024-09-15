@@ -10,7 +10,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::paginate(10); // Fetch all customers from database
-        return view('customer.index', compact('customers'));
+        return view('admin.customer.index', compact('customers'));
     }
 
     public function edit($id)
@@ -23,7 +23,7 @@ class CustomerController extends Controller
     }
 
     // Return the edit view
-    return view('customer.edit', compact('customer'));
+    return view('admin.customer.edit', compact('customer'));
 }
 
 public function update(Request $request, $id)

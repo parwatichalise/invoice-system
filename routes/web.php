@@ -20,7 +20,7 @@ Route::put('/customers/update/{id}', [CustomerController::class, 'update'])->nam
 Route::delete('/customers/destroy/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
 
 Route::get('/add-customer', function () {
-    return view('add-customer');
+    return view('admin.customer.add-customer');
 });
 
 Route::post('/add-customer', [CustomerController::class, 'create'])->name('customers.create');
