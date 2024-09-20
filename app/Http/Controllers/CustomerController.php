@@ -42,11 +42,14 @@ public function update(Request $request, $id)
 public function store(Request $request)
 {
     $request->validate([
-        'name' => 'required',
-        'mobile_no'=>'required',
+        'customer_name' => 'required',
+        'phone'=>'required',
+        'address'=>'required',
+        'status'=>'required',
+        'balance'=>'required',
         'city'=>'required',
         'state'=> 'required',
-        'zip_code'=>'required',
+        'pan_no'=>'required',
         'country'=>'required',
         'email' => 'required|email',
         // Add more validation rules as needed
@@ -57,13 +60,18 @@ public function store(Request $request)
     return redirect()->route('customer.index')
                      ->with('success', 'Customer created successfully!');
 }
-public function destroy(Customer $customer)
-    {
-        $customer->delete();
+public function destroy($id)
+{
+    $customer = Customer::find($id);
 
-        return redirect()->route('customers.index')
-                         ->with('success', 'Customer deleted successfully.');
+    if ($customer) {
+        $customer->delete();
+        return redirect()->route('customers.index')->with('success', 'Customer deleted successfully.');
     }
+
+    return redirect()->route('customers.index')->with('error', 'Customer not found.');
+}
+
 
     
     public function create(Request $request)
@@ -74,13 +82,13 @@ public function destroy(Customer $customer)
             'email' => 'nullable|email',
             'phone' => 'nullable',
             'address' => 'nullable',
-            'fax' => 'nullable',
             'state' => 'nullable',
+            'balance'=>'nullable',
             'country' => 'nullable',
             'vat_no' => 'nullable',
             'status' => 'nullable',
             'city' => 'nullable',
-            'pan_code' => 'nullable',
+            'pan_no' => 'nullable',
         ]);
 
         // Save customer data to the database or perform other actions

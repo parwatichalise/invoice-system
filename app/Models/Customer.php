@@ -13,15 +13,12 @@ class Customer extends Model
         'customer_name',
         'email',
         'phone',
-        'mobile_no',
         'vat_no',
-        'cr_no',
-        'address1',
-        'address2',
-        'fax',
+        'status',
+        'address',
         'city',
         'state',
         'country',
-        'zip_code',
+        'pan_no',
     ];
 }
