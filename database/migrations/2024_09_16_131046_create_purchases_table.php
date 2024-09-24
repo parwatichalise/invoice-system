@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('supplier_id'); // Foreign key to supplier
+            $table->foreignId('supplier_id')->constrained('suppliers')->cascadeOnDelete(); // Foreign key to supplier
             $table->string('chalan_no');
             $table->string('product_name');
             $table->integer('stock_quantity');

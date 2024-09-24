@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .container{
+       background-color: #F1DFD3
+    }
+   button[type="submit"]{
+       background-color: #e2a8be;
+
+   }
+</style>
 <div class="container py-6 mx-auto">
     <h1 class="mb-4 text-2xl font-bold">Edit Purchase</h1>
 
@@ -71,4 +80,14 @@
         </div>
     </form>
 </div>
+@endsection
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $('#stockTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+    });
+</script>
 @endsection

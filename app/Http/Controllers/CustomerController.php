@@ -78,7 +78,7 @@ public function destroy($id)
     {
         // Validate and store customer data
         $validatedData = $request->validate([
-            'customer_name' => 'required',
+            'customer_name' => 'required|string|max:255',
             'email' => 'nullable|email',
             'phone' => 'nullable',
             'address' => 'nullable',
@@ -97,3 +97,6 @@ public function destroy($id)
         return back()->with('success', 'Customer added successfully!');
     }
 }
+
+
+

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .container{
+       background-color: #F1DFD3
+    }
+</style>
 <div class="container p-6 mx-auto">
     <div class="p-4 bg-white rounded-md shadow">
         <h1 class="mb-4 text-xl font-bold">Manage Purchases</h1>
@@ -71,4 +76,14 @@
     </div>
 </div>
 </form>
+@endsection
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $('#stockTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+    });
+</script>
 @endsection

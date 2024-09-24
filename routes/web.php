@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\StockController;
+
+
 
 
 Route::get('/', function () {
@@ -43,5 +47,12 @@ Route::get('/add-purchase', function () {
     return view('admin.purchase.add-purchase');
 });
 
+Route::resource('sale', SaleController::class);
+Route::get('/newsale', function () {
+    return view('admin.sale.newsale');
+});
+
+
+Route::get('/stock-report', [StockController::class, 'index'])->name('stock.report');
 
 

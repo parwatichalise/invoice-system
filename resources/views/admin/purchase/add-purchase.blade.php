@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-
-    button[type="submit"]{
-        background-color: #e2a8be;
-
-    }
-</style>
 <div class="container p-4 mx-auto">
     <div class="p-6 bg-white rounded shadow-md">
         <div class="flex items-center justify-between mb-4">
@@ -77,9 +70,19 @@
 
             <!-- Submit Button -->
             <div class="mt-4">
-                <button type="submit" class="px-4 py-2 font-bold text-white rounded hover:bg-pink-600">Submit</button>
-            </div>
+                <button type="submit" class="px-4 py-2 font-bold text-white rounded hover:bg-pink-300">Submit</button>
+       </div>
         </form>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $('#stockTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+    });
+</script>
 @endsection
